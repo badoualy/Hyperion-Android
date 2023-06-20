@@ -42,11 +42,6 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
     debugImplementation project(':hyperion-core')
     releaseImplementation project(':hyperion-core-no-op')
-    debugImplementation project(':hyperion-attr')
-    debugImplementation project(':hyperion-attr-appcompat-v7')
-    debugImplementation project(':hyperion-attr-support-v4')
-    debugImplementation project(':hyperion-attr-recyclerview')
-    debugImplementation project(':hyperion-attr-design')
     debugImplementation project(':hyperion-measurement')
     debugImplementation project(':hyperion-recorder')
     debugImplementation project(':hyperion-disk')
