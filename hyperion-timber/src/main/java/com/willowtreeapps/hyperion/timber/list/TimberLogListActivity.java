@@ -1,28 +1,24 @@
 package com.willowtreeapps.hyperion.timber.list;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.app.ShareCompat;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ShareCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.willowtreeapps.hyperion.plugin.v1.HyperionIgnore;
 import com.willowtreeapps.hyperion.timber.R;
+import com.willowtreeapps.hyperion.timber.TimberPlugin;
 import com.willowtreeapps.hyperion.timber.model.CircularBuffer;
 import com.willowtreeapps.hyperion.timber.model.LogItem;
-import com.willowtreeapps.hyperion.timber.timber.TimberLogTree;
-
-import java.util.List;
-
-import timber.log.Timber;
 
 @HyperionIgnore
 public class TimberLogListActivity extends AppCompatActivity {
@@ -97,14 +93,7 @@ public class TimberLogListActivity extends AppCompatActivity {
     }
 
     private CircularBuffer<LogItem> getLogItemQueue() {
-        List<Timber.Tree> forest = Timber.forest();
-        for (Timber.Tree tree : forest) {
-            if (tree instanceof TimberLogTree) {
-                return ((TimberLogTree) tree).getCircularBuffer();
-            }
-        }
-
-        throw new RuntimeException("TimberLogTree not planted in forest.");
+        return TimberPlugin.logItemBuffer;
     }
 
     private void collectLogs() {

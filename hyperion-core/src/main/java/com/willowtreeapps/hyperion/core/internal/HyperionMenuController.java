@@ -45,8 +45,8 @@ public class HyperionMenuController implements HyperionMenu, OverlayContainer {
     private MenuState menuState = MenuState.CLOSE;
     private final List<OnOverlayViewChangedListener> onOverlayViewChangedListeners = new ArrayList<>();
 
-    private final SensorManager sensorManager;
-    private final Sensor accelerometer;
+    // private final SensorManager sensorManager;
+    // private final Sensor accelerometer;
     private final ShakeDetector shakeDetector;
 
     private Drawable background;
@@ -65,8 +65,8 @@ public class HyperionMenuController implements HyperionMenu, OverlayContainer {
             }
         });
 
-        sensorManager = (SensorManager) container.getContext().getSystemService(Context.SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        // sensorManager = (SensorManager) container.getContext().getSystemService(Context.SENSOR_SERVICE);
+        // accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         shakeDetector = new ShakeDetector();
         shakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
             @Override
@@ -230,11 +230,11 @@ public class HyperionMenuController implements HyperionMenu, OverlayContainer {
     }
 
     public void onStart() {
-        sensorManager.registerListener(shakeDetector, accelerometer, SensorManager.SENSOR_DELAY_UI);
+        // sensorManager.registerListener(shakeDetector, accelerometer, SensorManager.SENSOR_DELAY_UI);
     }
 
     public void onStop() {
-        sensorManager.unregisterListener(shakeDetector);
+        // sensorManager.unregisterListener(shakeDetector);
     }
 
     public void setShakeGestureSensitivity(float sensitivity) {

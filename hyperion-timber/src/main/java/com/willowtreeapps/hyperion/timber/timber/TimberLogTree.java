@@ -12,14 +12,10 @@ import timber.log.Timber;
 
 public class TimberLogTree extends Timber.DebugTree {
 
-    private final CircularBuffer<LogItem> circularBuffer;
+    protected final CircularBuffer<LogItem> circularBuffer;
 
     public TimberLogTree(CircularBuffer<LogItem> circularBuffer) {
         this.circularBuffer = circularBuffer;
-    }
-
-    public CircularBuffer<LogItem> getCircularBuffer() {
-        return circularBuffer;
     }
 
     @Override
