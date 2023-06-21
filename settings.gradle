@@ -1,5 +1,16 @@
 rootProject.name = 'hyperion'
-include ':hyperion-core',
+include ':hyperion-sample',
+        ':hyperion-core',
         ':hyperion-core-no-op',
         ':hyperion-plugin',
-        ':hyperion-timber'
+        ':hyperion-measurement',
+        ':hyperion-location',
+        ':hyperion-disk',
+        ':hyperion-recorder',
+        ':hyperion-phoenix',
+        ':hyperion-crash',
+        ':hyperion-shared-preferences',
+        ':hyperion-geiger-counter',
+        ':hyperion-timber',
+        ':hyperion-sqlite',
+        ':hyperion-build-config'

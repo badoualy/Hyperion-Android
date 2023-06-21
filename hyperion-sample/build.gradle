@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion project.compileSdkVersion
+    buildToolsVersion project.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.willowtreeapps.hyperion.sample"
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+        versionCode buildVersionCode()
+        versionName version
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            // Force a private static variable to be added to the BuildConfig
+            testCoverageEnabled true
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${project.versionAppCompat}"
+    implementation "androidx.multidex:multidex:${project.versionMultidex}"
+    implementation "androidx.recyclerview:recyclerview:${project.versionRecyclerView}"
+    implementation "com.jakewharton.timber:timber:4.7.0"
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    debugImplementation project(':hyperion-core')
+    releaseImplementation project(':hyperion-core-no-op')
+    debugImplementation project(':hyperion-measurement')
+    debugImplementation project(':hyperion-recorder')
+    debugImplementation project(':hyperion-disk')
+    debugImplementation project(':hyperion-phoenix')
+    debugImplementation project(':hyperion-crash')
+    debugImplementation project(':hyperion-shared-preferences')
+    debugImplementation project(':hyperion-geiger-counter')
+    debugImplementation project(':hyperion-timber')
+    debugImplementation project(':hyperion-sqlite')
+    debugImplementation project(':hyperion-build-config')
+}
