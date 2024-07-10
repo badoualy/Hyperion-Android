@@ -1,3 +1,15 @@
+### February 12, 2024 - v0.9.38
+
+- Moves CI from CircleCI to GitHub Actions. Upgrades CI so that when a new tag is created:
+  - A new version of the library is sent to Maven Central
+  - A new release is created on GitHub
+- App initialization is done via [App Startup](https://developer.android.com/topic/libraries/app-startup)(Fixes [#217](https://github.com/willowtreeapps/Hyperion-Android/issues/217))
+- Adds ability to filter Shared Preferences Files and Records in specific files by key
+- (Hyperion-Recorder) Updates recorder to start its own service and posts separate foreground service notification action to stop recording.
+- Updates target Android to 14 (no user-facing changes) )(Fixes [#262](https://github.com/willowtreeapps/Hyperion-Android/issues/262)[#263](https://github.com/willowtreeapps/Hyperion-Android/issues/263) and [#264](https://github.com/willowtreeapps/Hyperion-Android/issues/264))
+- (Hyperion-Core) Adds disable/enable functions to no-op variant (Fixes [#259](https://github.com/willowtreeapps/Hyperion-Android/issues/259))
+- Fixes potential NPEs in SharedPreferencesDetailAdapter
+
 ### February 22, 2023 - v0.9.37
 
 - No user-facing functionality, this version is just a swap to a new publishing plugin with a new gpg key
